@@ -1,6 +1,6 @@
 
 async function getCurrentData() {
-    const foo = await fetch('./current.json');
+    const foo = await fetch('./data/current.json');
     const fooJson = await foo.json();
     const theTable = document.getElementById('table_body');
     fooJson.entries.forEach(appendRowToTable(theTable));
