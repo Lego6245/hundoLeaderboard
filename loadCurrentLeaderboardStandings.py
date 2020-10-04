@@ -26,11 +26,11 @@ def main():
   mappedEntities = list(map(mapper, entityList))
   
   lastRunTime = datetime.now()
-  if os.path.isfile('current.json'):
+  if os.path.isfile('src/data/current.json'):
     timeString = lastRunTime.strftime("%d-%m-%y %H %M")
-    os.replace('current.json', 'historical/' + timeString + '.json')
+    os.replace('src/data/current.json', 'src/historical/' + timeString + '.json')
   
-  f = open("current.json", "w+")
+  f = open("src/data/current.json", "w+")
   jsonOutput = {}
   jsonOutput['ranAt'] = lastRunTime.strftime("%d-%m-%y %H:%M")
   jsonOutput['entries'] = mappedEntities
