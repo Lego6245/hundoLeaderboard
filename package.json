@@ -1,7 +1,6 @@
 {
   "name": "hundoLeaderboard",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/Lego6245/hundoLeaderboard.git",
   "scripts": {
     "start": "parcel serve ./src/index.html",
