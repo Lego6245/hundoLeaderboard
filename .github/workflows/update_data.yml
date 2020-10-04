@@ -3,6 +3,7 @@
 name: Update Leaderboards w/ Latest Framecounts
 
 on:
+  workflow_dispatch:
   schedule:
     # Run hourly
     - cron: "0 * * * *"
