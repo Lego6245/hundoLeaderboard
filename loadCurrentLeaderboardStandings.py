@@ -2,7 +2,7 @@ import sys
 import json
 import os
 from azure.cosmosdb.table.tableservice import TableService
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def main():
   connection_string = sys.argv[1]
@@ -25,13 +25,16 @@ def main():
 
   mappedEntities = list(map(mapper, entityList))
   
+  lastRunTime = datetime.now()
   if os.path.isfile('current.json'):
-    lastRunTime = datetime.now() - timedelta(hours=1)
     timeString = lastRunTime.strftime("%d-%m-%y %H:%M")
     os.replace('current.json', 'historical/' + timeString + '.json')
   
   f = open("current.json", "w+")
-  f.write(json.dumps(mappedEntities))
+  jsonOutput = {}
+  jsonOutput['ranAt'] = lastRunTime.strftime("%d-%m-%y %H:%M")
+  jsonOutput['entries'] = mappedEntities
+  f.write(json.dumps(jsonOutput))
   f.close()
 
 if __name__ == "__main__":
