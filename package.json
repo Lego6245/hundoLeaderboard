@@ -8,6 +8,9 @@
   },
   "author": "William S. <lego6245@gmail.com>",
   "license": "MIT",
+  "browserslist": [
+    "defaults"
+  ],
   "devDependencies": {
     "parcel": "^2.0.0-beta.1"
   }
