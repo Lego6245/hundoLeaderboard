@@ -1,0 +1,34 @@
+name: Publish Website
+
+on:
+  workflow_dispatch:
+  push:
+    branches: # triggers on any push to master
+    - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '12'
+    - name: Cache node modules
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-npm-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-npm-
+    - name: Install dependencies
+      run: yarn install
+    - name: Test
+      run: yarn test --if-present
+    - name: Build
+      run: yarn build --if-present
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
