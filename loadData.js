@@ -4,6 +4,8 @@ async function getCurrentData() {
     const fooJson = await foo.json();
     const theTable = document.getElementById('table_body');
     fooJson.entries.forEach(appendRowToTable(theTable));
+    const timeSpan = document.getElementById('last_time');
+    timeSpan.textContent = fooJson.ranAt;
 }
 
 const appendRowToTable = (table) => (rowData) => {
