@@ -5,6 +5,11 @@ on:
   push:
     branches: # triggers on any push to master
     - main
+  workflow_run:
+    workflows: ["Update Leaderboards w/ Latest Framecounts"]
+    branches: [main]
+    types: 
+      - completed
 
 jobs:
   build-deploy:
