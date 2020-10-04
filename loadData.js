@@ -3,7 +3,7 @@ async function getCurrentData() {
     const foo = await fetch('./current.json');
     const fooJson = await foo.json();
     const theTable = document.getElementById('table_body');
-    fooJson.forEach(appendRowToTable(theTable));
+    fooJson.entries.forEach(appendRowToTable(theTable));
 }
 
 const appendRowToTable = (table) => (rowData) => {

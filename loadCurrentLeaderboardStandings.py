@@ -27,7 +27,7 @@ def main():
   
   lastRunTime = datetime.now()
   if os.path.isfile('current.json'):
-    timeString = lastRunTime.strftime("%d-%m-%y %H:%M")
+    timeString = lastRunTime.strftime("%d-%m-%y %H %M")
     os.replace('current.json', 'historical/' + timeString + '.json')
   
   f = open("current.json", "w+")
