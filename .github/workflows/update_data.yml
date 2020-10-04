@@ -20,8 +20,10 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install python dependencies
+      - name: Install poetry
         run: pip install --user poetry
+      
+      - name: Install python dependencies
         run: poetry install
       
       - name: Do the subscriber count update
