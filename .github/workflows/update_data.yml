@@ -21,9 +21,11 @@ jobs:
           python-version: '3.x'
 
       - name: Install poetry
+        shell: bash
         run: pip install --user poetry
       
       - name: Install python dependencies
+        shell: bash
         run: poetry install
       
       - name: Do the subscriber count update
