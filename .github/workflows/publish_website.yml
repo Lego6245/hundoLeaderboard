@@ -14,15 +14,8 @@ jobs:
     - uses: actions/setup-node@v2-beta
       with:
         node-version: '12'
-    - name: Cache node modules
-      uses: actions/cache@v1
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-npm-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-npm-
-    - name: Install dependencies
-      run: yarn install
+    - name: Cache + Install
+      uses: bahmutov/npm-install@v1
     - name: Test
       run: npm run test --if-present
     - name: Build
