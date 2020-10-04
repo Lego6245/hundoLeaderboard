@@ -1,11 +1,10 @@
+import data from '../data/current.json';
 
 async function getCurrentData() {
-    const foo = await fetch('./data/current.json');
-    const fooJson = await foo.json();
     const theTable = document.getElementById('table_body');
-    fooJson.entries.forEach(appendRowToTable(theTable));
+    data.entries.forEach(appendRowToTable(theTable));
     const timeSpan = document.getElementById('last_time');
-    timeSpan.textContent = fooJson.ranAt;
+    timeSpan.textContent = data.ranAt;
 }
 
 const appendRowToTable = (table) => (rowData) => {
