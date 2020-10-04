@@ -1,0 +1,39 @@
+# Shamelessly borrowed + modified from speculative/hodllive
+
+name: Update Leaderboards w/ Latest Framecounts
+
+on:
+  schedule:
+    # Run hourly
+    - cron: "0 * * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+        
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install python dependencies
+        run: pip install --user poetry
+        run: poetry install
+      
+      - name: Do the subscriber count update
+        shell: bash
+        env:
+          AZURE_CONNECTION_STRING: ${{ secrets.AZURE_CONNECTION_STRING }}
+        run: poetry run python loadCurrentLeaderboardStandings.py "$AZURE_CONNECTION_STRING"
+    
+      - name: Commit & push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updating Leaderboard Data
+          commit_user_name: John TAS, President of TAS
+          commit_user_email: completethegameathighvelocity@github.com
+          commit_author: John TAS <completethegameathighvelocity@github.com>
