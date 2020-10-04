@@ -21,6 +21,7 @@ This repository contains the github actions and static site hosting the Recipies
 * TASMalleo for doing the actual TASing that this project supports, as well as spearheading the overall project.
 * Cubik, SevenChords, and Amphitryon for working on the client, without which this leadboard would be very empty.
 * The TTYD speedrunning community for contributing their computing resources to this project.
+* Speculative, for providing the inspiration for this method of caching historical data with their [hodllive project](https://github.com/Speculative/hodllive).
 
 # Other links
 
