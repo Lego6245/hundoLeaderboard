@@ -21,8 +21,9 @@ jobs:
           python-version: '3.x'
 
       - name: Install poetry
-        shell: bash
-        run: pip install --user poetry
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.1.0
       
       - name: Install python dependencies
         shell: bash
