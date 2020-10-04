@@ -1,6 +1,6 @@
 import data from '../data/current.json';
 
-async function getCurrentData() {
+function getCurrentData() {
     const theTable = document.getElementById('table_body');
     data.entries.forEach(appendRowToTable(theTable));
     const timeSpan = document.getElementById('last_time');
