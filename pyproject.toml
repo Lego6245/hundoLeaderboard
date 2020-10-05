@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "hundoLeaderboard"
 version = "0.1.0"
-description = "A front end to display the top records for the Recipies At Home project for the TTYD 100% TAS"
+description = "A front end to display the top records for the Recipes At Home project for the TTYD 100% TAS"
 authors = ["Lego <lego6245@gmail.com>"]
 
 [tool.poetry.dependencies]
