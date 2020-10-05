@@ -1,6 +1,6 @@
 # Hundo Leaderboard
 
-This repository contains the github actions and static site hosting the Recipies @ Home project's leaderboard. For more information, see [this video](https://youtu.be/kpn30v5Y_YQ) by TASMalleo, or the main client's repository [here](https://github.com/SevenChords/CipesAtHome).
+This repository contains the github actions and static site hosting the Recipes @ Home project's leaderboard. For more information, see [this video](https://youtu.be/kpn30v5Y_YQ) by TASMalleo, or the main client's repository [here](https://github.com/SevenChords/CipesAtHome).
 
 # Implementation
 
