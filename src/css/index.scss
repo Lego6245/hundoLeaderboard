@@ -1,0 +1,78 @@
+body {
+    font-family: 'Roboto', sans-serif;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: black;
+        color: white
+    }
+}
+
+#the_table {
+    margin: 5px auto;
+    text-align: center;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 3px solid;
+    counter-reset: rowNumber;
+
+    tr {
+        &:nth-child(even) {
+            background-color: #DDD;
+            @media (prefers-color-scheme: dark) {
+                background-color: #333;
+            }
+        }
+
+        &:nth-child(odd) {
+            background-color: #BBB;
+            @media (prefers-color-scheme: dark) {
+                background-color: #555;
+            }
+        }
+
+        th, td {
+            padding: 5px;
+        }
+
+        &::before {
+            text-align: center;
+            padding: 5px;
+            border-right: 3px solid;
+            display: table-cell;
+        }
+
+        &:first-child {
+            &::before {
+                content: '';
+            }
+
+            border-bottom: 3px solid;
+        }
+
+        &:not(:first-child) {
+            &::before {
+                counter-increment: rowNumber;
+                content: counter(rowNumber) ".";
+            }
+        }
+    }
+}
+
+#footer {
+    text-align: center;
+
+    a[href] {
+        @media (prefers-color-scheme: dark) {
+            color: rgb(102, 170, 255);
+        }
+    }
+    a:visited {
+        @media (prefers-color-scheme: dark) {
+            color: rgb(102, 170, 255);
+        }
+    }
+}
+
+h1 {
+    text-align: center;
+}

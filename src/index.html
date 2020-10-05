@@ -1,10 +1,12 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <title>Recipies @ Home Leaderboard</title>
+        <link href="./css/index.scss" rel="stylesheet">
     </head>
     <body>
-        <div>The Recipies at Home Leaderboard</div>
-        <div>The leaderboard is updated roughly every hour. Last update: <span id="last_time">XXX</span> UTC</div>
+        <h1>The Recipies at Home Leaderboard</h1>
         <table id="the_table">
             <tbody id="table_body">
                 <tr>
@@ -13,6 +15,7 @@
                 </tr>
             </tbody>
         </table>
+        <div id="footer">The leaderboard is updated roughly every hour. Last update: <span id="last_time">XXX</span> UTC. For more information about this leaderboard and how to contribute, <a href="https://github.com/Lego6245/hundoLeaderboard/blob/main/README.md">click here.</a></div>
         <script src='./js/loadData.ts'></script>
     </body>
 </html>
