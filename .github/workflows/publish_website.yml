@@ -31,3 +31,5 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
         cname: recipesatho.me
+        user_name: 'John TAS'
+        user_email: 'completethegameathighvelocity@github.com'  
