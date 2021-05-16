@@ -16,6 +16,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
+          token: ${{ secrets.PAT }}
         
       - uses: actions/setup-python@v2
         with:
