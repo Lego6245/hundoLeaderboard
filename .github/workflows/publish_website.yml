@@ -33,3 +33,4 @@ jobs:
         cname: recipesatho.me
         user_name: 'John TAS'
         user_email: 'completethegameathighvelocity@github.com'  
+        force_orphan: true
