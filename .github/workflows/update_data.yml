@@ -37,7 +37,7 @@ jobs:
         run: poetry run python loadCurrentLeaderboardStandings.py "$AZURE_CONNECTION_STRING"
     
       - name: Commit & push
-        uses: stefanzweifel/git-auto-commit-action@v4.6.0
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Updating Leaderboard Data
           commit_user_name: John TAS, President of TAS
