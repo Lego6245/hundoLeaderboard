@@ -23,7 +23,7 @@ def main():
     mapped['frameCount'] = e.numFrames.value
     return mapped
 
-  mappedEntities = list(map(mapper, entityList))
+  mappedEntities = list(map(mapper, entityList))[:50]
   
   lastRunTime = datetime.now()
   if os.path.isfile('src/data/current.json'):
