@@ -11,7 +11,7 @@ This repository contains the github actions and static site hosting the Recipes 
 
 # TODO
 
-1. Styling for the index page.
+1. ~~Styling for the index page.~~
 2. Load old historical data via query parameter.
 3. Maybe some global stats?
 4. Typescript support for the client side JS
