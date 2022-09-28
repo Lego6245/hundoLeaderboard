@@ -1,3 +1,92 @@
+//@use "sass:map";
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../../node_modules/bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/helpers";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here
+@include color-scheme(dark) {
+//    $theme-colors: map-merge($theme-colors, (
+//        "light": invert($light),
+//        "dark": invert($dark)
+//    ));
+    // heck it, invert and manually fix colours (the ones written here will be inverted!)
+    body {
+        filter: invert(100%) hue-rotate(180deg);
+    }
+    .table-warning {
+        --bs-table-bg: #{$yellow-700} !important;
+        --bs-table-color: white !important;
+        --bs-table-striped-bg: #{$yellow-700} !important;
+        --bs-table-striped-color: white !important;
+    }
+    .table-secondary {
+        --bs-table-bg: #{$gray-500} !important;
+        --bs-table-striped-bg: #{$gray-500} !important;
+    }
+    .table-danger {
+        --bs-table-bg: #{$orange-300} !important;
+        --bs-table-striped-bg: #{$orange-300} !important;
+    }
+}
+
+#the_table {
+    max-width: 10cm;
+
+    tbody {
+        counter-reset: rowNumber;
+
+        tr {
+//            &:nth-child(0n+1) {
+//                @include table-variant("warning", map.get($table-variants, "warning")); // """gold"""
+//                background-color: gold;
+//            }
+//            &:nth-child(0n+2) {
+//                @include table-variant("secondary", map.get($table-variants, "secondary")); // """silver"""
+//                background-color: gray;
+//            }
+//            &:nth-child(0n+3) {
+//                @include table-variant("danger", map.get($table-variants, "danger")); // """bronze"""
+//                background-color: brown;
+//            }
+            // heck this I'm using JS (actually TS)
+
+            td:first-child::before {
+                counter-increment: rowNumber;
+                content: counter(rowNumber) ".";
+            }
+        }
+    }
+}
+
+#last_time {
+    white-space: nowrap; // don't split timestamp over line
+}
+
+/*
 body {
     font-family: 'Roboto', sans-serif;
 
@@ -76,3 +165,4 @@ body {
 h1 {
     text-align: center;
 }
+*/
