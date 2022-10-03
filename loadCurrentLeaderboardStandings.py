@@ -11,16 +11,14 @@ def main():
   entities = table_service.query_entities('fastestLeaderboard', "PartitionKey eq 'frameCount'")
   
   entityList = list(entities)
-
-  def sorter(e):
-    return e.numFrames.value
   
-  entityList.sort(key=sorter)
+  entityList.sort(key=lambda e: (e.numFrames.value, e.Timestamp))
 
   def mapper(e):
     mapped = {}
     mapped['userName'] = e.RowKey
     mapped['frameCount'] = e.numFrames.value
+    mapped['timeStamp'] = e.Timestamp.strftime("%m/%d/%Y %H:%M:%S")
     return mapped
 
   mappedEntities = list(map(mapper, entityList))[:50]
