@@ -29,27 +29,24 @@
 
 // 8. Add additional custom code here
 @include color-scheme(dark) {
-//    $theme-colors: map-merge($theme-colors, (
-//        "light": invert($light),
-//        "dark": invert($dark)
-//    ));
     // heck it, invert and manually fix colours (the ones written here will be inverted!)
     body {
         filter: invert(100%) hue-rotate(180deg);
-    }
-    .table-warning {
-        --bs-table-bg: #{$yellow-700} !important;
-        --bs-table-color: white !important;
-        --bs-table-striped-bg: #{$yellow-700} !important;
-        --bs-table-striped-color: white !important;
-    }
-    .table-secondary {
-        --bs-table-bg: #{$gray-500} !important;
-        --bs-table-striped-bg: #{$gray-500} !important;
-    }
-    .table-danger {
-        --bs-table-bg: #{$orange-300} !important;
-        --bs-table-striped-bg: #{$orange-300} !important;
+
+        #the_table tbody tr{
+            &:nth-child(0n+1) {
+                --bs-table-bg: #{$yellow-700};
+                --bs-table-striped-bg: #{$yellow-700};
+            }
+            &:nth-child(0n+2) {
+                --bs-table-bg: #{$gray-500};
+                --bs-table-striped-bg: #{$gray-500};
+            }
+            &:nth-child(0n+3) {
+                --bs-table-bg: #{$orange-300};
+                --bs-table-striped-bg: #{$orange-300};
+            }
+        }
     }
 }
 
@@ -60,20 +57,20 @@
         counter-reset: rowNumber;
 
         tr {
-//            &:nth-child(0n+1) {
-//                @include table-variant("warning", map.get($table-variants, "warning")); // """gold"""
-//                background-color: gold;
-//            }
-//            &:nth-child(0n+2) {
-//                @include table-variant("secondary", map.get($table-variants, "secondary")); // """silver"""
-//                background-color: gray;
-//            }
-//            &:nth-child(0n+3) {
-//                @include table-variant("danger", map.get($table-variants, "danger")); // """bronze"""
-//                background-color: brown;
-//            }
-            // heck this I'm using JS (actually TS)
-
+            &:nth-child(0n+1) {
+                --bs-table-bg: #{$orange-300};
+                --bs-table-color: white;
+                --bs-table-striped-bg: #{$orange-300};
+                --bs-table-striped-color: white;
+            }
+            &:nth-child(0n+2) {
+                --bs-table-bg: #{$gray-500};
+                --bs-table-striped-bg: #{$gray-500};
+            }
+            &:nth-child(0n+3) {
+                --bs-table-bg: #{$yellow-700};
+                --bs-table-striped-bg: #{$yellow-700};
+            }
             td:first-child::before {
                 counter-increment: rowNumber;
                 content: counter(rowNumber) ".";
