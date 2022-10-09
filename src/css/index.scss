@@ -1,53 +1,11 @@
-//@use "sass:map";
-
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "bootstrap/scss/_functions.scss";
-
-// 2. Include any default variable overrides here
-
-// 3. Include remainder of required Bootstrap stylesheets
 @import "bootstrap/scss/_variables.scss";
-
-// 4. Include any default map overrides here
-
-// 5. Include remainder of required parts
 @import "bootstrap/scss/_maps.scss";
 @import "bootstrap/scss/_mixins.scss";
 @import "bootstrap/scss/_root.scss";
 
-// 6. Optionally include any other parts as needed
-@import "bootstrap/scss/_utilities.scss";
-@import "bootstrap/scss/_reboot.scss";
-@import "bootstrap/scss/_type.scss";
-@import "bootstrap/scss/_images.scss";
-@import "bootstrap/scss/_containers.scss";
-@import "bootstrap/scss/_grid.scss";
-@import "bootstrap/scss/_helpers.scss";
-
-// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "bootstrap/scss/utilities/_api.scss";
-
-// 8. Add additional custom code here
-@include color-scheme(dark) {
-    // heck it, invert and manually fix colours (the ones written here will be inverted!)
-    body {
-        filter: invert(100%) hue-rotate(180deg);
-
-        #the_table tbody tr{
-            &:nth-child(0n+1) {
-                --bs-table-bg: #{$yellow-700};
-                --bs-table-striped-bg: #{$yellow-700};
-            }
-            &:nth-child(0n+2) {
-                --bs-table-bg: #{$gray-500};
-                --bs-table-striped-bg: #{$gray-500};
-            }
-            &:nth-child(0n+3) {
-                --bs-table-bg: #{$orange-300};
-                --bs-table-striped-bg: #{$orange-300};
-            }
-        }
-    }
+#last_time {
+    white-space: nowrap; // don't split timestamp over line
 }
 
 #the_table {
@@ -57,19 +15,20 @@
         counter-reset: rowNumber;
 
         tr {
-            &:nth-child(0n+1) {
-                --bs-table-bg: #{$orange-300};
-                --bs-table-color: white;
-                --bs-table-striped-bg: #{$orange-300};
-                --bs-table-striped-color: white;
+            &:nth-child(1) {
+                --gold-color: #{$yellow-300};
+                --bs-table-bg: var(--gold-color);
+                --bs-table-striped-bg: var(--gold-color);
             }
-            &:nth-child(0n+2) {
-                --bs-table-bg: #{$gray-500};
-                --bs-table-striped-bg: #{$gray-500};
+            &:nth-child(2) {
+                --silver-color: #{$gray-500};
+                --bs-table-bg: var(--silver-color);
+                --bs-table-striped-bg: var(--silver-color);
             }
-            &:nth-child(0n+3) {
-                --bs-table-bg: #{$yellow-700};
-                --bs-table-striped-bg: #{$yellow-700};
+            &:nth-child(3) {
+                --bronze-color: #{$orange-300};
+                --bs-table-bg: var(--bronze-color);
+                --bs-table-striped-bg: var(--bronze-color);
             }
             td:first-child::before {
                 counter-increment: rowNumber;
@@ -79,87 +38,17 @@
     }
 }
 
-#last_time {
-    white-space: nowrap; // don't split timestamp over line
-}
-
-/*
-body {
-    font-family: 'Roboto', sans-serif;
-
-    @media (prefers-color-scheme: dark) {
-        background-color: black;
-        color: white
+@include color-scheme(dark) {
+    // heck it, invert the whole page
+    body {
+        filter: invert(100%) hue-rotate(180deg);
     }
-}
-
-#the_table {
-    margin: 5px auto;
-    text-align: center;
-    table-layout: fixed;
-    border-collapse: collapse;
-    border: 3px solid;
-    counter-reset: rowNumber;
-
-    tr {
-        &:nth-child(even) {
-            background-color: #DDD;
-            @media (prefers-color-scheme: dark) {
-                background-color: #333;
-            }
-        }
-
-        &:nth-child(odd) {
-            background-color: #BBB;
-            @media (prefers-color-scheme: dark) {
-                background-color: #555;
-            }
-        }
-
-        th, td {
-            padding: 5px;
-        }
-
-        &::before {
-            text-align: center;
-            padding: 5px;
-            border-right: 3px solid;
-            display: table-cell;
-        }
-
-        &:first-child {
-            &::before {
-                content: '';
-            }
-
-            border-bottom: 3px solid;
-        }
-
-        &:not(:first-child) {
-            &::before {
-                counter-increment: rowNumber;
-                content: counter(rowNumber) ".";
-            }
+    // and manually fix colours (the ones written here will be inverted!)
+    #the_table tbody tr {
+        &:nth-child(1) {
+            --gold-color: #{$yellow-700};
+            --bs-table-color: white;
+            --bs-table-striped-color: white;
         }
     }
 }
-
-#footer {
-    text-align: center;
-
-    a[href] {
-        @media (prefers-color-scheme: dark) {
-            color: rgb(102, 170, 255);
-        }
-    }
-    a:visited {
-        @media (prefers-color-scheme: dark) {
-            color: rgb(102, 170, 255);
-        }
-    }
-}
-
-h1 {
-    text-align: center;
-}
-*/
