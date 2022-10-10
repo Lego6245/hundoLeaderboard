@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "repository": "https://github.com/Lego6245/hundoLeaderboard.git",
   "scripts": {
-    "start": "parcel serve ./src/index.html --no-cache",
-    "build": "parcel build ./src/index.html --no-cache --public-url ./"
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html --public-url ./"
   },
   "author": "William S. <lego6245@gmail.com>",
   "license": "MIT",
