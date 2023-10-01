@@ -1,21 +1,41 @@
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-        <title>Recipes @ Home Leaderboard</title>
-        <link href="./css/index.scss" rel="stylesheet">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.scss">
+    <title>Recipes @ Home Leaderboard</title>
+</head>
+
+<body>
+    <header>
         <h1>The Recipes at Home Leaderboard</h1>
-        <div id="footer">The leaderboard is updated roughly every hour. Last update: <span id="last_time">XXX</span> UTC. For more information about this leaderboard and how to contribute, <a href="https://github.com/Lego6245/hundoLeaderboard/blob/main/README.md">click here.</a></div>
-        <table id="the_table">
-            <tbody id="table_body">
-                <tr>
-                    <th>Username</th>
-                    <th>Framecount</th>
-                </tr>
-            </tbody>
-        </table>
-        <script src='./js/loadData.ts'></script>
-    </body>
+    </header>
+
+    <main>
+        <section id="leaderboard">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Framecount</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+                    <!-- Leaderboard data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>The leaderboard is updated roughly every hour. Last update: <time id="last_time" datetime="XXXX-XX-XXTXX:XX:XXZ">XXX</time> UTC.</p>
+        <p>For more information about this leaderboard and how to contribute, <a href="https://github.com/Lego6245/hundoLeaderboard/blob/main/README.md">click here.</a></p>
+    </footer>
+
+    <script src='./js/loadData.ts'></script>
+</body>
+
 </html>
