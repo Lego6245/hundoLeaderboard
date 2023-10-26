@@ -24,8 +24,6 @@ jobs:
 
       - name: Install poetry
         uses: abatilo/actions-poetry@v2
-        with:
-          poetry-version: 1.0.0
       
       - name: Install python dependencies
         shell: bash
