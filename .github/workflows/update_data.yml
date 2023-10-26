@@ -28,6 +28,10 @@ jobs:
       - name: Install python dependencies
         shell: bash
         run: poetry install
+
+      - name: Force re-install six due to errors
+        shell: bash
+        run: pip install --ignore-installed six
       
       - name: Do the subscriber count update
         shell: bash
