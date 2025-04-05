@@ -9,10 +9,12 @@ function getCurrentData() {
 
 const appendRowToTable = (table) => (rowData) => {
     const newRow = document.createElement('tr');
+    const rankCell = document.createElement('td');
     const userCell = document.createElement('td');
     userCell.textContent = rowData.userName;
     const frameCell = document.createElement('td');
     frameCell.textContent = rowData.frameCount;
+    newRow.appendChild(rankCell);
     newRow.appendChild(userCell);
     newRow.appendChild(frameCell);
     table.appendChild(newRow);
