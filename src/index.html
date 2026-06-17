@@ -1,21 +1,30 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <title>Recipes @ Home Leaderboard</title>
         <link href="./css/index.scss" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+            rel="stylesheet" crossorigin="anonymous">
     </head>
     <body>
-        <h1>The Recipes at Home Leaderboard</h1>
-        <div id="footer">The leaderboard is updated roughly every hour. Last update: <span id="last_time">XXX</span> UTC. For more information about this leaderboard and how to contribute, <a href="https://github.com/Lego6245/hundoLeaderboard/blob/main/README.md">click here.</a></div>
-        <table id="the_table">
-            <tbody id="table_body">
-                <tr>
-                    <th>Username</th>
-                    <th>Framecount</th>
-                </tr>
-            </tbody>
-        </table>
-        <script src='./js/loadData.ts'></script>
+        <div class="bg-light">
+            <main class="align-items-center container d-flex flex-column text-center">
+                <h1>The Recipes at Home Leaderboard</h1>
+                <div>The leaderboard is updated roughly every hour. Last update: <span id="last_time">XXX</span> UTC. For more information about this leaderboard and how to contribute, <a href="https://github.com/Lego6245/hundoLeaderboard/blob/main/README.md">click here</a>.</div>
+                <table class="table table-bordered table-sm table-striped" id="the_table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Framecount</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="table_body"></tbody>
+                </table>
+                <script src='./js/loadData.ts'></script>
+            </main>
+        </div>
     </body>
 </html>

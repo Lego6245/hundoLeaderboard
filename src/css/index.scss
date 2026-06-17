@@ -1,56 +1,36 @@
-body {
-    font-family: 'Roboto', sans-serif;
+@import "bootstrap/scss/_functions.scss";
+@import "bootstrap/scss/_variables.scss";
+@import "bootstrap/scss/_maps.scss";
+@import "bootstrap/scss/_mixins.scss";
+@import "bootstrap/scss/_root.scss";
 
-    @media (prefers-color-scheme: dark) {
-        background-color: black;
-        color: white
-    }
+#last_time {
+    white-space: nowrap; // don't split timestamp over line
 }
 
 #the_table {
-    margin: 5px auto;
-    text-align: center;
-    table-layout: fixed;
-    border-collapse: collapse;
-    border: 3px solid;
-    counter-reset: rowNumber;
+    max-width: 10cm;
 
-    tr {
-        &:nth-child(even) {
-            background-color: #DDD;
-            @media (prefers-color-scheme: dark) {
-                background-color: #333;
+    tbody {
+        counter-reset: rowNumber;
+
+        tr {
+            &:nth-child(1) {
+                --gold-color: #{$yellow-300};
+                --bs-table-bg: var(--gold-color);
+                --bs-table-striped-bg: var(--gold-color);
             }
-        }
-
-        &:nth-child(odd) {
-            background-color: #BBB;
-            @media (prefers-color-scheme: dark) {
-                background-color: #555;
+            &:nth-child(2) {
+                --silver-color: #{$gray-500};
+                --bs-table-bg: var(--silver-color);
+                --bs-table-striped-bg: var(--silver-color);
             }
-        }
-
-        th, td {
-            padding: 5px;
-        }
-
-        &::before {
-            text-align: center;
-            padding: 5px;
-            border-right: 3px solid;
-            display: table-cell;
-        }
-
-        &:first-child {
-            &::before {
-                content: '';
+            &:nth-child(3) {
+                --bronze-color: #{$orange-300};
+                --bs-table-bg: var(--bronze-color);
+                --bs-table-striped-bg: var(--bronze-color);
             }
-
-            border-bottom: 3px solid;
-        }
-
-        &:not(:first-child) {
-            &::before {
+            td:first-child::before {
                 counter-increment: rowNumber;
                 content: counter(rowNumber) ".";
             }
@@ -58,21 +38,17 @@ body {
     }
 }
 
-#footer {
-    text-align: center;
-
-    a[href] {
-        @media (prefers-color-scheme: dark) {
-            color: rgb(102, 170, 255);
+@include color-scheme(dark) {
+    // heck it, invert the whole page
+    body {
+        filter: invert(100%) hue-rotate(180deg);
+    }
+    // and manually fix colours (the ones written here will be inverted!)
+    #the_table tbody tr {
+        &:nth-child(1) {
+            --gold-color: #{$yellow-700};
+            --bs-table-color: white;
+            --bs-table-striped-color: white;
         }
     }
-    a:visited {
-        @media (prefers-color-scheme: dark) {
-            color: rgb(102, 170, 255);
-        }
-    }
-}
-
-h1 {
-    text-align: center;
 }
